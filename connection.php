@@ -1,14 +1,14 @@
 <?php
 
-$servername = "mysql:host=localhost;dbname=logindb";
+$servername = "mysql:host=localhost;dbname=crud";
 $username = "root";
-$password = "";
+$password = "root";
 
 try {
   $conn = new PDO($servername, $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//  echo "Connected successfully";
+//   echo "Connected successfully";
 } catch(PDOException $e) {
 //   echo "Connection failed: " . $e->getMessage();
 }

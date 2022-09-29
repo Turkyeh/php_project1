@@ -36,22 +36,26 @@
 
                             <div class="form-group">
                             
-                                <input type="text" name="hosname" id="name" placeholder="Update id" value=<?php echo $_POST['name']; ?>>
+                                <input type="text" name="hosid" id="name" placeholder="Update id" value=<?php echo $_POST['id']; ?>>
                             </div>
                             <div class="form-group">
                                 
         
 
-                                <input type="text" name="hosemail"   id="email" placeholder="Update name " value=<?php echo $_POST[ 'email' ]; ?>>
+                                <input type="text" name="hosname"   id="email" placeholder="Update name " value=<?php echo $_POST[ 'name' ]; ?>>
                                 
                             </div>
                             <div class="form-group">
                                
                       
 
-                                <input type="text" name="hospassword"  id="pass" placeholder="Update Age" value=<?php echo $_POST[ 'password']; ?> >
+                                <input type="text" name="hosAge"  id="pass" placeholder="Update Age" value=<?php echo $_POST[ 'Age']; ?> >
                             </div>
-                        
+                            <div class="form-group">
+                              
+                                
+                                <input type="text" name="hosAddress" id="re_pass" placeholder="Update Address " value=<?php echo $_POST[ 'Address' ]; ?> >
+                            </div>
                            
                             <div class="form-group form-button">
                                 <input type="submit" value="Edit" name="updatehos" id="signup" class="form-submit" />
@@ -74,23 +78,24 @@
 
    
     $stmt = $conn->prepare("UPDATE
-        user SET 
-        name=:i , email=:n , password=:a 
-        WHERE email=:email");
-    $stmt->bindParam(':i', $name);
-    $stmt->bindParam(':n', $email);
-    $stmt->bindParam(':a', $password);
-    
-    $stmt->bindParam(':email', $_GET['email']);
+        Patient SET 
+        id=:i , name=:n , Age=:a , Address=:ad 
+        WHERE id=:id");
+    $stmt->bindParam(':i', $id);
+    $stmt->bindParam(':n', $name);
+    $stmt->bindParam(':a', $age);
+    $stmt->bindParam(':ad', $Address);
+
+    $stmt->bindParam(':id', $_GET['id']);
     
 
+    $id = $_POST['hosid'];
     $name = $_POST['hosname'];
-    $email = $_POST['hosemail'];
-    $password = $_POST['hospassword'];
-    
+    $age = $_POST['hosAge'];
+    $Address = $_POST['hosAddress'];
    
     $stmt->execute();
-    header("location:admin.php");
+    header("location:LandingPage.php");
    
 }
 

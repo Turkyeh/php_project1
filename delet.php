@@ -1,12 +1,12 @@
 <?php
-$id=$_GET['email'];
+$id=$_GET['id'];
 echo $id;
 
 
 include 'connection.php';
 
-$query="DELETE FROM user WHERE email='$id'";
+$query="DELETE FROM Patient WHERE id=$id";
 $conn->exec($query);
-header("location:admin.php");
+header("location:LandingPage.php");
 
 ?>
